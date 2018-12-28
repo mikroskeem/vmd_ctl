@@ -1,3 +1,7 @@
+/*
+ * clang -O2 -s -lutil conv_scaled.c -o conv_scaled
+ */
+
 #include <util.h>
 #include <stdio.h>
 #include <string.h>
