@@ -3,6 +3,13 @@
 use strict;
 use warnings;
 
+# Other essential files
+my @default_files = (
+    "/dev/null",
+    "/dev/zero",
+    "/dev/urandom"
+);
+
 # Deduplicates list contents
 # https://stackoverflow.com/a/7657
 sub dedup {
@@ -44,9 +51,7 @@ sub get_libs {
         push @libs, $lib;
         
         # Get dependencies of dependency
-        foreach my $l (get_libs($lib)) {
-            push @libs, $l;
-        }
+        push @libs, get_libs($lib)
     }
 
     return dedup(@libs);
@@ -59,6 +64,7 @@ if(!defined($prog)) {
     exit 1;
 }
 
-foreach my $l (get_libs($prog)) {
+push @default_files, get_libs($prog);
+foreach my $l (@default_files) {
     print $l . "\n";
 }
