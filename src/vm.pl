@@ -50,6 +50,7 @@ while(my $line = <$proc>) {
             "max" => parse_usernum($sp[3]),
             "used" => $sp[4] eq "-" ? 0 : parse_usernum($sp[4])
         },
+        "vcpus" => $sp[2] + 0,
         "owner" => {}
     );
 
