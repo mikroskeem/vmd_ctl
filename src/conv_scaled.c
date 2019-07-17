@@ -8,6 +8,16 @@
 #include <errno.h>
 
 int main(int argc, char **argv) {
+    if (unveil(NULL, NULL) < 0) {
+        perror("unveil");
+        return 1;
+    }
+
+    if (pledge("stdio", NULL) < 0) {
+        perror("pledge");
+        return 1;
+    }
+
     if (argc < 2) {
         fprintf(stderr, "Invalid usage\n");
         return 1;
