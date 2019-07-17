@@ -27,7 +27,7 @@ my %res = ();
 my $vm_count = 0;
 my @vminfo = ();
 
-my $pid = open(my $proc, "-|", "doas /usr/sbin/vmctl status") or die("wtf");
+my $pid = open(my $proc, "-|", "/htdocs/vmm/cgi/do_vmctl - status") or die("wtf");
 while(my $line = <$proc>) {
     # Trim left side
     $line =~ s/^\s+//;
