@@ -36,7 +36,7 @@ while(my $line = <$proc>) {
     if ($sp[0] eq "ID") {
         next
     }
-    
+
     # Increase vm counter
     $vm_count++;
 
